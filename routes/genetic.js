@@ -73,7 +73,7 @@ GeneSmart: (req, res) => {
     var temp1;
     var population=150;
     let chrome=[];
-    var generation=100;
+    var generation=150;
   for (g=0;g< generation;g++){
    if(g==0){
     for(x=0;x<population;x++){

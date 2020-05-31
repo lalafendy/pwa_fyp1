@@ -1,0 +1,196 @@
+<%- include ('partials/header'); -%>
+
+<div class="container">
+    <% if (product.length > 0) {%>
+        
+        <% product.forEach((prod, index) => { %>
+    <table class="smarttable">
+    <thead>
+    <tr>
+    <th>SPECIFICATIONS</th>
+    </tr>
+    <tr>
+        <td><%= prod.product_image %></td>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>NAME</td>
+    <td><%= prod.product_name %></td>
+    </tr>
+    <tr>
+    <td>PRICE</td>
+    <td><%= prod.product_price %></td>
+    </tr>
+    <tr>
+    <td>BRAND</td>
+    <td><%= prod.product_brand %></td>
+    </tr>
+    <tr>
+    <td>MODEL</td>
+    <td><%= prod.product_model %></td>
+    </tr>
+    <tr>
+    <td>STATUS</td>
+    <td><%= prod.product_status %></td>
+    </tr>
+    <tr>
+    <td>RELEASE YEAR</td>
+    <td><%= prod.product_ryear %></td>
+    </tr>
+    <tr>
+    <td>DIMENSION</td>
+    <td><%= prod.product_dimension %></td>
+    </tr>
+    <tr>
+    <td>WEIGHT</td>
+    <td><%= prod.product_weight %></td>
+    </tr>
+    <tr>
+    <td>COLOUR</td>
+    <td><%= prod.product_colour %></td>
+    </tr>
+    <tr>
+    <td>MATERIAL</td>
+    <td><%= prod.product_material %></td>
+    </tr>
+    <tr>
+    <td>SIM CARD</td>
+    <td><%= prod.product_sim %></td>
+    </tr>
+    <tr>
+    <td>SIZE</td>
+    <td><%= prod.product_size %></td>
+    </tr>
+    <tr>
+    <td>MATERIAL</td>
+    <td><%= prod.product_material %></td>
+    </tr>
+    <tr>
+    <td>SIM CARD</td>
+    <td><%= prod.product_sim %></td>
+    </tr>
+    <tr>
+    <td>SIZE</td>
+    <td><%= prod.product_size %></td>
+    </tr>
+    <tr>
+    <td>MATERIAL</td>
+    <td><%= prod.product_material %></td>
+    </tr>
+    <tr>
+    <td>SIM CARD</td>
+    <td><%= prod.product_sim %></td>
+    </tr>
+    <tr>
+    <td>SIZE</td>
+    <td><%= prod.product_size %></td>
+    </tr>
+     <tr>
+    <td>SCREEN</td>
+    <td><%= prod.product_sctype %></td>
+    </tr>
+    <tr>
+    <td>RESOLUTION</td>
+    <td><%= prod.product_reso %></td>
+    </tr>
+    <tr>
+    <td>DENSITY </td>
+    <td><%= prod.product_density %></td>
+    </tr> <tr>
+    <td>SPEED</td>
+    <td><%= prod.product_speed %></td>
+    </tr>
+    <tr>
+    <td>CAMERA NUM</td>
+    <td><%= prod.product_camnum %></td>
+    </tr>
+    <tr>
+    <td>REAR</td>
+    <td><%= prod.product_camR %></td>
+    </tr>
+    <tr>
+    <td>FRONT</td>
+    <td><%= prod.product_camF %></td>
+    </tr>
+    <tr>
+    <td>SOFTWARE</td>
+    <td><%= prod.product_software %></td>
+    </tr>
+    <tr>
+    <td>CHIPSET</td>
+    <td><%= prod.product_chipset %></td>
+    </tr> 
+    <tr>
+    <td>CPU</td>
+    <td><%= prod.product_cpu %></td>
+    </tr>
+    <tr>
+    <td>GPU</td>
+    <td><%= prod.product_gpu %></td>
+    </tr>
+    <tr>
+    <td>RAM</td>
+    <td><%= prod.product_ram %></td>
+    </tr>
+    <tr>
+    <td>STORAGE</td>
+    <td><%= prod.product_storage %></td>
+    </tr>
+    <tr>
+    <td>cslot</td>
+    <td><%= prod.product_cslot %></td>
+    </tr>
+    <tr>
+    <td>BATTERY</td>
+    <td><%= prod.product_battype %></td>
+    </tr>
+    <tr>
+    <td>CAPACITY</td>
+    <td><%= prod.product_batcap %></td>
+    </tr>
+    <tr>
+    <td>REMOVABLE</td>
+    <td><%= prod.product_battremove %></td>
+    </tr>
+    <tr>
+    <td>WIRELESS CHARGE</td>
+    <td><%= prod.product_wirelesscharge %></td>
+    </tr>
+    <tr>
+    <td>SOUND</td>
+    <td><%= prod.product_SOUND %></td>
+    </tr>
+    <tr>
+    <td>SENSOR</td>
+    <td><%= prod.product_sensor %></td>
+    </tr>
+    <tr>
+    <td>BLUETOOTH</td>
+    <td><%= prod.product_bluetooth %></td>
+    </tr>
+    <tr>
+    <td>GPS</td>
+    <td><%= prod.product_gps %></td>
+    </tr>
+    <tr>
+    <td>USB</td>
+    <td><%= prod.product_USB %></td>
+    </tr>
+    <tr>
+    <td>WiFi</td>
+    <td><%= prod.product_WiFi %></td>
+    </tr>
+    </tbody>
+    </table>
+</div>
+    <% }) %>
+
+    <% } else { %>
+        <p class="text-center">No players found. Go <a href="/add" >here</a> to add players.</p>
+    <% } %>
+
+</body>
+
+<script src='loader.js'></script>
+</html>

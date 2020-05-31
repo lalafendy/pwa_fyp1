@@ -1,0 +1,215 @@
+<%- include ('partials/header'); -%>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (product) { %>
+        <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="prod-id">ID</label>
+                    <input type="text" class="form-control" name="product_id" id="product_id" value="<%= product.product_id %>" required disabled title="ID cannot be edited.">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="prod-name">Name</label>
+                    <input type="text" class="form-control" name="product_name" id="product_name" value="<%= product.product_name %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="prod-price">Price</label>
+                    <input type="text" class="form-control" name="product_price" id="product_price" value="<%= product.product_price %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="prod-brand">Brand</label>
+                    <select id="product_brand" name="product_brand" class="form-control" required>
+                        <option selected><%= product.product_brand %></option>
+                        <option>Rear</option>
+                        <option>Rear Dual</option>
+                        <option>Rear Triple</option>
+                        <option>Rear Quadraple</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="prod-img"><b>Player Image</b></label><br>
+                    <input type="file" name="product_image" id="product_image" value="<%= product.product_image %>">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="prod-model">Model</label>
+                    <input type="text" class="form-control" name="product_model" id="product_model" value="<%= product.product_model %>" required>
+                </div> 
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="prod-status">Status</label>
+                    <input type="text" class="form-control" name="product_status" id="product_status" value="<%= product.product_status %>" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="prod-ryear">Release Year</label>
+                    <input type="text" class="form-control" name="product_ryear" id="product_ryear" value="<%= product.product_ryear %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="prod-dimension">Dimension</label>
+                    <input type="text" class="form-control" name="product_dimension" id="product_dimension" value="<%= product.product_dimension %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="prod-weight">Weight</label>
+                    <input type="text" class="form-control" name="product_weight" id="product_weight" value="<%= product.product_weight %>" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="prod-colour">Colour</label>
+                    <input type="text" class="form-control" name="product_colour" id="product_colour" value="<%= product.product_colour %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="prod-material">Material</label>
+                    <input type="text" class="form-control" name="product_material" id="product_material" value="<%= product.product_material %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="prod-sim">Sim</label>
+                    <input type="text" class="form-control" name="product_sim" id="product_sim" value="<%= product.product_sim %>" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="prod-size">Size</label>
+                    <input type="text" class="form-control" name="product_size" id="product_size" value="<%= product.product_size %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="prod-sctype">Screen Type</label>
+                    <input type="text" class="form-control" name="product_sctype" id="product_sctype" value="<%= product.product_sctype %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="prod-reso">Resolution</label>
+                    <input type="text" class="form-control" name="product_reso" id="product_reso" value="<%= product.product_reso %>" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="prod-ppi">Size</label>
+                    <input type="text" class="form-control" name="product_ppi" id="product_ppi" value="<%= product.product_ppi %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="prod-speed">Speed</label>
+                    <input type="text" class="form-control" name="product_speed" id="product_speed" value="<%= product.product_speed %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="prod-camnum">Camera</label>
+                    <select id="product_camnum" name="product_camnum" class="form-control" required>
+                        <option selected><%= product.product_camnum %></option>
+                        <option>Rear</option>
+                        <option>Rear Dual</option>
+                        <option>Rear Triple</option>
+                        <option>Rear Quadraple</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="prod-camR">Rear Camera</label>
+                    <input type="text" class="form-control" name="product_camR" id="product_camR" value="<%= product.product_camR %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="prod-camF">Front Camera</label>
+                    <input type="text" class="form-control" name="product_camF" id="product_camF" value="<%= product.product_camF %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="prod-software">Software</label>
+                    <input type="text" class="form-control" name="product_software" id="product_software" value="<%= product.product_software %>" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="prod-chipset">Chipset</label>
+                    <input type="text" class="form-control" name="product_chipset" id="product_chipset" value="<%= product.product_chipset %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="prod-cpu">CPU</label>
+                    <input type="text" class="form-control" name="product_cpu" id="product_cpu" value="<%= product.product_cpu %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="prod-gpu">GPU</label>
+                    <input type="text" class="form-control" name="product_gpu" id="product_gpu" value="<%= product.product_gpu %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="prod-ram">RAM</label>
+                    <input type="text" class="form-control" name="product_ram" id="product_ram" value="<%= product.product_ram %>" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="prod-storage">Storage</label>
+                    <input type="text" class="form-control" name="product_storage" id="product_storage" value="<%= product.product_storage %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="prod-cslot">Card Slot</label>
+                    <input type="text" class="form-control" name="product_cslot" id="product_cslot" value="<%= product.product_cslot %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="prod-battype">Batttery</label>
+                    <input type="text" class="form-control" name="product_battype" id="product_battype" value="<%= product.product_battype %>" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="prod-batcap">Battery Capacity</label>
+                    <input type="text" class="form-control" name="product_batcap" id="product_batcap" value="<%= product.product_batcap %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="prod-battremove">Removable battery</label>
+                    <select id="product_battremove" name="product_battremove" class="form-control" required>
+                        <option selected><%= product.product_battremove %></option>
+                        <option>Removable</option>
+                        <option>Non-Removable</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="prod-wirelesscharge">Wireless Charge</label>
+                    <input type="text" class="form-control" name="product_wirelesscharge" id="product_wirelesscharge" value="<%= product.product_wirelesscharge %>" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="prod-sound">Sound</label>
+                    <input type="text" class="form-control" name="product_sound" id="product_sound" value="<%= product.product_sound %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="prod-sensor">Sensor</label>
+                    <input type="text" class="form-control" name="product_sensor" id="product_sensor" value="<%= product.product_sensor %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="prod-bluetooth">Bluetooth</label>
+                    <input type="text" class="form-control" name="product_bluetooth" id="product_bluetooth" value="<%= product.product_bluetooth %>" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="prod-gps">GPS</label>
+                    <input type="text" class="form-control" name="product_gps" id="product_gps" value="<%= product.product_gps %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="prod-USB">USB</label>
+                    <input type="text" class="form-control" name="product_USB" id="product_USB" value="<%= product.product_USB %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="prod-WiFi">WiFi</label>
+                    <input type="text" class="form-control" name="product_WiFi" id="product_WiFi" value="<%= product.product_WiFi %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="prod-admin">Admin</label>
+                    <input type="text" class="form-control" name="product_admin" id="product_admin" value="<%= product.product_admin %>" required disabled title="Username cannot be edited.">
+                </div>
+        </div> 
+            <button type="submit" class="btn btn-success float-right">Update Product</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">Player Not Found. Go <a href="/add">here</a> to add players.</p>
+    <% } %>
+</div>
+</body>
+<script src='loader.js'></script>
+</html>

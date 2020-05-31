@@ -1,0 +1,145 @@
+<%- include ('partials/header'); -%>
+    <div class="container">
+        <% if (message != '') { %>
+            <p class="text-center text-danger"><%= message %></p>
+        <% } %>
+        <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_name" id="product_name" placeholder="Name" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_price" id="product_price" placeholder="Price" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <select id="product_brand" name="product_brand" class="form-control" required>
+                        <option selected disabled>Choose Brand</option>
+                        <option>Oppo</option>
+                        <option>Samsung</option>
+                        <option>Huawei</option>
+                        <option>Vivo</option>
+                        <option>Xiaomi</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="product_model"><b>Model</b></label><br>
+                    <input type="text" class="form-control" name="product_model" id="product_model" placeholder="Model" required>
+                </div>
+               
+                <div class="form-group col-md-6">
+                    <select id="product_status" name="product_status" class="form-control" required>
+                        <option selected disabled>Status</option>
+                        <option>Available</option>
+                        <option>Coming Soon</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_ryear" id="product_ryear" placeholder="Release Year" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_dimension" id="product_dimension" placeholder="Dimension" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_weight" id="product_weight" placeholder="Weight" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_colour" id="product_colour" placeholder="Colour" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_material" id="product_material" placeholder="Material" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_sim" id="product_sim" placeholder="Sim Card" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_size" id="product_size" placeholder="Size" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_sctype" id="product_sctype" placeholder="Screen Type" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_reso" id="product_reso" placeholder="Resolutions" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_ppi" id="product_ppi" placeholder="ppi Density" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_speed" id="product_speed" placeholder=" Speed" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_camnum" id="product_camnum" placeholder="Camera Quantity" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_camR" id="product_camR" placeholder="Rear Camera" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_camF" id="product_camF" placeholder="Front Camera" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_software" id="product_software" placeholder="Operating System" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_chipset" id="product_chipset" placeholder="Chipset" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_cpu" id="product_cpu" placeholder="CPU" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_gpu" id="product_gpu" placeholder="GPU" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_ram" id="product_ram" placeholder="RAM" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_storage" id="product_storage" placeholder="Storage" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_cslot" id="product_cslot" placeholder="Card Slot" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_battype" id="product_battype" placeholder="Battery Name" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_batcap" id="product_batcap" placeholder="Capacity Battery" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_battremove" id="product_battremove" placeholder="Battery Removable" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_wirelesscharge" id="product_wirelesscharge" placeholder="Wireless Charge" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_sound" id="product_sound" placeholder="Sound" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_sensor" id="product_sensor" placeholder="Sensor" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_bluetooth" id="product_bluetooth" placeholder="Bluetooth" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_gps" id="product_gps" placeholder="GPS" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_USB" id="product_USB" placeholder="USB" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="product_WiFi" id="product_WiFi" placeholder="WiFi" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="smart-img"><b>Image</b></label><br>
+                    <input type="file" name="image" id="smart-img" class="">
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-primary float-right">Add Smart</button>
+        </form>
+    </div>
+</div>
+</body>
+<script src='loader.js'></script>
+</html>

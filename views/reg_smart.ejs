@@ -1,0 +1,56 @@
+<%- include ('partials/header'); -%>
+<form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+<div class="form-row">
+  <div class="form-group col-md-4">
+      <label for="admin_id">ID :</label>
+      <input type="text" class="form-control" name="admin_id" id="admin_id" placeholder="ID" required>
+  </div>
+  <div class="form-group col-md-6">
+      <label for="admin_name">NAME :</label>
+      <input type="text" class="form-control" name="admin_name" id="admin_name" placeholder="name" required>
+  </div>
+  <div class="form-group col-md-4">
+      <label for="admin_address">ADDRESS:</label>
+      <input type="text" class="form-control" name="admin_address" id="admin_address" placeholder="address" required>
+  </div>
+  <div class="form-group col-md-4">
+      <label for="admin_birth">BIRTH DATE:</label>
+      <input type="text" class="form-control" name="admin_birth" id="admin_birth" placeholder="birth date" required>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <select id="admin_brand" name="admin_brand" class="form-control" required>
+        <option selected disabled>Choose Brand</option>
+        <option value=3>Oppo</option>
+        <option value=1>Samsung</option>
+        <option value=2>Huawei</option>
+        <option value=4>Vivo</option>
+        <option value=5>Xiaomi</option>
+    </select>
+</div>
+  <div class="form-group col-md-6">
+      <label for="admin_password">Password</label>
+      <input type="password" class="form-control" name="admin_password" id="admin_password" placeholder="password" required>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-4">
+      <label for="admin_phone">Phone</label>
+      <input type="text" class="form-control" name="admin_phone" id="admin_phone" placeholder="phone" required>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="admin_email">EMAIL</label>
+    <input type="text" class="form-control" name="admin_email" id="admin_email" placeholder="email" required>
+  </div>
+</div>
+      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+      <button type="submit" class="registerbtn">Register</button>
+    </div>
+</form>
+    <div class="container signin">
+      <p>Already have an account? <a href="/">Sign in</a>.</p>
+    </div>
+  </form>
+  <script src='loader.js'></script>
+</body>

@@ -1,0 +1,209 @@
+<%- include ('partials/header'); -%>
+
+<form class="spec-form-center" action="/genedata" method="POST" enctype="multipart/form-data">
+<div class="form-row-center">
+    <div class="form-group col-md-6">
+        <label for="Brand:">BRAND:</label>
+        <select id="myBrand" name="myBrand" class="form-control" required>
+            <option selected disabled>Choose Brand</option>
+            <option value=3>Oppo</option>
+            <option value=1>Samsung</option>
+            <option value=2>Huawei</option>
+            <option value=4>Vivo</option>
+            <option value=5>Xiaomi</option>
+        </select>
+    </div>
+  <div class="slidecontainer">
+        <label for="price:">LIMIT PRICE:</label>
+        <input type="range" name="myPrice" id="myPrice" value="3000" min="200" max="6000" data-show-value="true">
+  </div>
+</div>
+<div class="form-row-center">
+    <div class="form-group col-md-4">
+        <label for="Colour">Colour:</label>
+        <select id="myColour" name="myColour" class="form-control-center" required>
+            <option selected disabled>Colour</option>
+            <option value=Red>Red</option>
+            <option value=Blue>Blue</option>
+            <option value=Green>Green</option>
+            <option value=Orange>Orange</option>
+            <option value=White>White</option>
+            <option value=Purple>Purple</option>
+            <option value=Black>Black</option>
+            <option value=Silver>Silver</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="material">MATERIAL:</label>
+        <select id="myMaterial" name="myMaterial" class="form-control" required>
+            <option selected disabled>Material</option>
+            <option value="Plastic">Plastic</option>
+            <option value="Aluminium">Aluminium</option>
+        </select>
+     </div>
+  <div class="form-group col-md-4">
+      <label for="Inches">INCHES:</label>
+      <input type="range" name="myInches" id="myInches" value="5" min="3" max="8" data-show-value="true">
+    </div>
+  
+  <div class="form-group col-md-4">
+    <label for="RelYear">YEAR:</label>
+    <select id="myYear" name="myYear" class="form-control" required>
+        <option selected disabled>Release Year</option>
+        <option value=2015>2015</option>
+        <option value=2016>2016</option>
+        <option value=2017>2017</option>
+        <option value=2018>2018</option>
+        <option value=2019>2019</option>
+        <option value=2019>2020</option>
+    </select>
+  </div>
+</div>
+<div class="form-row-center">
+  <div class="form-group col-md-4">
+    <label for="sctype">SCREEN TYPE:</label>
+    <select id="mySctype" name="mySctype" class="form-control" required>
+        <option selected disabled>screen type</option>
+        <option value="LCD IPS">LCD IPS</option>
+        <option value="LTPS IPS LCD">LTPS IPS LCD</option>
+        <option value="AMOLED">AMOLED</option>
+        <option value="Super AMOLED">Super AMOLED</option>
+        <option value="OLED">OLED</option>
+        <option value="S-IPS LCD">S-IPS LCD</option>
+        <option value="Dynamic AMOLED">Dynamic AMOLED</option>
+    </select>
+</div>
+<div class="form-group col-md-4">
+    <label for="Camnum">CAMERA NUMBER:</label>
+    <select id="myCamnum" name="myCamnum" class="form-control" required>
+        <option selected disabled>Release Year</option>
+        <option value="Rear Single">Rear</option>
+        <option value="Rear Dual">Rear Dual</option>
+        <option value="Rear Triple">Rear Triple</option>
+        <option value="Rear Quad">Rear Quad</option>
+        <option value="Rear Five">Rear Five</option>
+    </select>
+ </div>
+ <div class="form-group col-md-4">
+    <label for="rearCam">REAR CAMERA:</label>
+    <select id="myRcam" name="myRcam" class="form-control" required>
+        <option selected disabled>megapixel</option>
+        <option value="8">8 MP</option>
+        <option value="13">13 MP</option>
+        <option value="16">16 MP</option>
+        <option value="8">24 MP</option>
+        <option value="48">48 MP</option>
+        <option value="64">64 MP</option>
+        <option value="108">108 MP</option>
+    </select>
+ </div>
+ <div class="form-group col-md-4">
+    <label for="frontCam">FRONT CAMERA:</label>
+    <select id="myFcam" name="myFcam" class="form-control" required>
+        <option selected disabled>megapixel</option>
+        <option value="5 MP">5 MP</option>
+        <option value="8 MP">8 MP</option>
+        <option value="10 MP">10 MP</option>
+        <option value="13 MP">13 MP</option>
+        <option value="16 MP">16 MP</option>
+        <option value="24 MP">24 MP</option>
+        <option value="32 MP">32 MP</option>
+        <option value="48 MP">48 MP</option>
+        <option value="64 MP">64 MP</option>
+    </select>
+ </div> 
+  <div class="form-group col-md-4">
+        <div class="slidecontainer">
+            <label for="Weight">WEIGHT:</label>
+            <input type="range" name="myWeight" id="myWeight" value="200" min="100" max="300" data-show-value="true">
+         </div>
+    </div>
+</div>
+<div class="form-row-center">
+    <div class="form-group col-md-4">
+            <label for="Screenratio">Screen Ratio:</label>
+            <select id="myScratio" name="myScratio" class="form-control" required>
+                <option selected disabled>Ratio</option>
+                <option value="16:9">16:9</option>
+                <option value="18.5:9">18.5:9</option>
+                <option value="19:9">19:9</option>
+                <option value="19.5:9">19.5:9</option>
+                <option value="20:9">20:9</option>
+            </select>
+         </div>
+         <div class="form-row-center">
+            <div class="form-group col-md-4">
+              <label for="CHIPSET">CHIPSET:</label>
+              <select id="myChip" name="myChip" class="form-control" required>
+                  <option selected disabled>CHIPSET</option>
+                  <option value="HiSilicon Kirin">Hisilicon Kirin</option>
+                  <option value="MediaTek">Mediatek</option>
+                  <option value="Snapdragon">Snapdragon</option>
+                  <option value="Exynos">Exynos</option>
+              </select>
+          </div>
+          <div class="form-row-center">
+            <div class="form-group col-md-4">
+              <label for="GPU">GPU:</label>
+              <select id="myGPU" name="myGPU" class="form-control" required>
+                  <option selected disabled>GPU</option>
+                  <option value="Mali">Mali</option>
+                  <option value="Adreno">Adreno</option>
+                  <option value="PowerVR">PowerVR</option>
+              </select>
+          </div>
+         <div class="form-group col-md-4">
+            <label for="RAM">RAM SIZE:</label>
+            <select id="myRAM" name="myRAM" class="form-control" required>
+                <option selected disabled>RAM</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+            </select>
+         </div>
+         <div class="form-group col-md-4">
+            <label for="storage">STORAGE SIZE:</label>
+            <select id="myStorage" name="myStorage" class="form-control" required>
+                <option selected disabled>STORAGE</option>
+                <option value="6">6GB</option>
+                <option value="8">8GB</option>
+                <option value="16">16GB</option>
+                <option value="32">32GB</option>
+                <option value="64">64GB</option>
+                <option value="128">128GB</option>
+                <option value="512">512GB</option>
+            </select>
+         </div>
+</div>
+<div class="form-row-center">
+    <div class="form-group col-md-4">
+            <label for="battcap">BATTERY CAPACITY:</label>
+            <select id="mybattCap" name="mybattCap" class="form-control" required>
+                <option selected disabled>Capacity (mAh)</option>
+                <option value="3000">UP TO 3000</option>
+                <option value="3500">UP TO 3500</option>
+                <option value="4000">UP TO 4000</option>
+                <option value="4500">UP TO 4500</option>
+                <option value="5000">UP TO 5000</option>
+            </select>
+         </div>
+         <div class="form-group col-md-4">
+            <label for="battype">BATTERY:</label>
+            <select id="myBattery" name="myBattery" class="form-control" required>
+                <option selected disabled>Battery</option>
+                <option value="Li-Po">Li-Po</option>
+                <option value="Li-Ion">Li-Ion</option>
+            </select>
+         </div>
+        </div>      
+</div>
+</div>
+    
+    <button type="submit"class="/genebtn">FIND</button>
+</div>
+</form>
+
+</body>
+<script src='loader.js'></script>

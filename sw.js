@@ -10,6 +10,9 @@ self.addEventListener('install', (event) => {
           "/login",
           "/loader.js",
           "/admin.js",
+          "/app.js",
+          "/genetic.js",
+          "/index.js",
           "/auth",
           "/add",
       ])

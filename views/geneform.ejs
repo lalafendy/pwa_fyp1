@@ -15,8 +15,19 @@
     </div>
   <div class="slidecontainer">
         <label for="price:">LIMIT PRICE:</label>
-        <input type="range" name="myPrice" id="myPrice" value="3000" min="200" max="6000" data-show-value="true">
-  </div>
+       <!-- <input type="range" name="myPrice" id="myPrice" value="3000" min="200" max="6000" data-show-value="true">-->
+        <input type="radio" name="myPrice" value="1000">
+        <label for="myPrice">Less than 1000</label><br>
+        <input type="radio" name="myPrice" value="2000">
+        <label for="myPrice">Less than 2000</label><br>
+        <input type="radio" name="myPrice" value="3000" checked>
+        <label for="myPrice">Less than 3000</label><br>
+        <input type="radio" name="myPrice" value="4000" checked>
+        <label for="myPrice">Less than 4000</label><br>
+        <input type="radio" name="myPrice" value="5000" checked>
+        <label for="myPrice">Less than 5000</label><br><br>
+      </div>
+    </div>
 </div>
 <div class="form-row-center">
     <div class="form-group col-md-4">
@@ -43,7 +54,18 @@
      </div>
   <div class="form-group col-md-4">
       <label for="Inches">INCHES:</label>
-      <input type="range" name="myInches" id="myInches" value="5" min="3" max="8" data-show-value="true">
+     <!--<input type="range" name="myInches" id="myInches" value="5" min="3" max="8" data-hint-always="true">
+      <input data-role="slider" name="myInches" id="myInches" value="5" min="3" max="8" data-hint="true" data-hint-always="true">-->
+      <input type="radio" name="myInches" value="4">
+      <label for="myInches">+-4.0 inches</label><br>
+      <input type="radio" name="myInches" value="5">
+      <label for="myInches">+-5.0 inches</label><br>
+      <input type="radio" name="myInches" value="6" checked>
+      <label for="myInches">+-6.0 inches</label><br>
+      <input type="radio" name="myInches" value="7" checked>
+      <label for="myInches">+-7.0 inches</label><br>
+      <input type="radio" name="myInches" value="8" checked>
+      <label for="myInches">+-8.0 inches</label><br><br>
     </div>
   
   <div class="form-group col-md-4">
@@ -63,7 +85,7 @@
   <div class="form-group col-md-4">
     <label for="sctype">SCREEN TYPE:</label>
     <select id="mySctype" name="mySctype" class="form-control" required>
-        <option selected disabled>screen type</option>
+        <option selected disabled>Screen type</option>
         <option value="LCD IPS">LCD IPS</option>
         <option value="LTPS IPS LCD">LTPS IPS LCD</option>
         <option value="AMOLED">AMOLED</option>
@@ -76,7 +98,7 @@
 <div class="form-group col-md-4">
     <label for="Camnum">CAMERA NUMBER:</label>
     <select id="myCamnum" name="myCamnum" class="form-control" required>
-        <option selected disabled>Release Year</option>
+        <option selected disabled>Camera</option>
         <option value="Rear Single">Rear</option>
         <option value="Rear Dual">Rear Dual</option>
         <option value="Rear Triple">Rear Triple</option>
@@ -113,11 +135,17 @@
     </select>
  </div> 
   <div class="form-group col-md-4">
-        <div class="slidecontainer">
+        
             <label for="Weight">WEIGHT:</label>
-            <input type="range" name="myWeight" id="myWeight" value="200" min="100" max="300" data-show-value="true">
-         </div>
-    </div>
+            <input type="radio" name="myWeight" value="100">
+            <label for="myWeight">Less than 100g</label><br>
+            <input type="radio" name="myWeight" value="150">
+            <label for="myWeight">Less than 150g</label><br>
+            <input type="radio" name="myWeight" value="200" checked>
+            <label for="myWeight">Less than 200g</label><br>
+            <input type="radio" name="myWeight" value="300" checked>
+            <label for="myWeight">More than 200g</label><br><br>
+
 </div>
 <div class="form-row-center">
     <div class="form-group col-md-4">

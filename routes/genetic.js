@@ -258,7 +258,7 @@ Gene.prototype.calcFitness = function() {
                         fitness+=1;
                       }
                       if(this.genotype[i].product_sctype.match(demand.product_sctype))
-                      { //console.log("sctype");
+                      { 
                         fitness+=5;
                       }
                       else{

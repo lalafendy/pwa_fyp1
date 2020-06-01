@@ -210,7 +210,7 @@ Gene.prototype.calcFitness = function() {
     var conflict=0;
      if(this.genotype[i].product_brand==demand.product_brand)
       { 
-         fitness+=5;
+         fitness+=10;
       }
       else{
         conflict+=1;
@@ -219,7 +219,7 @@ Gene.prototype.calcFitness = function() {
         
          if(this.genotype[i].product_price <= demand.product_price)
          { //console.log("price");
-         fitness+=20;
+         fitness+=10;
           }
           else{
             conflict+=1;

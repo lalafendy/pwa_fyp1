@@ -192,7 +192,8 @@ module.exports = {
                 console.log("login"+req.session.username);
 				res.redirect('/admon');
 			} else {
-				res.send('Incorrect Username and/or Password!');
+                //window.alert("Wrong Password or Username!"); 
+				res.redirect('/login');
             }
         			
 			res.end();

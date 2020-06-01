@@ -57,6 +57,7 @@ app.get('/register', regPage);
 app.get('/edit/:id', editSmartPage);
 app.get('/delete/:id', deleteSmart);
 app.get('/view/:id', viewSmart);
+app.get('/bview/:id', viewSmart);
 app.get('/logoutt', logout);
 app.post('/add', addSmart);
 app.post('/genedata', GeneSmart);

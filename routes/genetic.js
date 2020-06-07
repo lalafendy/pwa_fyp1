@@ -29,7 +29,7 @@ GeneSmart: (req, res) => {
   var demand =[];
   var item=[];
   
-    db.query("SELECT * FROM smartphone", function(error,results, fields){
+    db.query('SELECT * FROM smartphone', function(error,results, fields){
     if (error) {
         res.redirect('/');
     }
@@ -70,7 +70,7 @@ GeneSmart: (req, res) => {
     let gene3;
     let max = 0;
     var temp1;
-    var population=150;
+    var population=100;
     let chrome=[];
     var generation=100;
   for (g=0;g< generation;g++){
@@ -140,7 +140,7 @@ chrome.forEach(chrome => {
     max =chrome.fitness;
     gene3=chrome;
   }
-});
+});//bawah ni
 }
 console.log(gene3);
 var r1=gene3.genotype[0].product_id;
@@ -162,7 +162,7 @@ let query = 'SELECT * FROM `smartphone` where product_id IN ( "' + r1 + '","'+r2
 });
 class Item { constructor(product_id,product_brand,product_price, product_colour,product_material,product_size,product_ryear, product_sctype, product_camnum, product_camR, product_camF,product_weight,product_reso,product_chipset,product_gpu,product_ram, product_storage, product_batcap,product_battype) {
   this.product_id=product_id;
-  this.product_brand=product_brand;
+  this.product_brand=parseInt(product_brand);
   this.product_price=parseInt(product_price);
   this.product_colour=product_colour;
   this.product_material=product_material;
@@ -214,7 +214,7 @@ Gene.prototype.calcFitness = function() {
       }
       else{
         conflict+=1;
-        fitness+=1;
+        fitness+=2;
       }
         
          if(this.genotype[i].product_price <= demand.product_price)
@@ -223,15 +223,15 @@ Gene.prototype.calcFitness = function() {
           }
           else{
             conflict+=1;
-            fitness+=1;
+            fitness+=5;
           }
            if(this.genotype[i].product_colour.match(demand.product_colour))
-           {/// console.log("color");
+           {// console.log("color");
            fitness+=5;
              }
              else{
               conflict+=1;
-              fitness+=1;
+              fitness+=3;
             }
               if(this.genotype[i].product_material.match(demand.product_material))
             { //console.log("material");
@@ -239,7 +239,7 @@ Gene.prototype.calcFitness = function() {
               }
               else{
                 conflict+=1;
-                fitness+=1;
+                fitness+=2;
               }
                 if(this.genotype[i].product_size>=demand.product_size)
                 {//console.log("size");
@@ -247,7 +247,7 @@ Gene.prototype.calcFitness = function() {
                   }
                   else{
                     conflict+=1;
-                    fitness+=1;
+                    fitness+=2;
                   }
                     if(this.genotype[i].product_ryear>=demand.product_ryear)
                     {//console.log("ryear");
@@ -255,7 +255,7 @@ Gene.prototype.calcFitness = function() {
                       }
                       else{
                         conflict+=1;
-                        fitness+=1;
+                        fitness+=2;
                       }
                       if(this.genotype[i].product_sctype.match(demand.product_sctype))
                       { 
@@ -263,7 +263,7 @@ Gene.prototype.calcFitness = function() {
                       }
                       else{
                         conflict+=1;
-                        fitness+=1;
+                        fitness+=2;
                       }
                         if(this.genotype[i].product_camnum.match(demand.myCamnum))
                         { //console.log("camnum");
@@ -271,7 +271,7 @@ Gene.prototype.calcFitness = function() {
                         }
                         else{
                           conflict+=1;
-                          fitness+=1;
+                          fitness+=2;
                         }
                           if(this.genotype[i].product_camR>=demand.product_camR)
                           {// console.log("camR");
@@ -279,7 +279,7 @@ Gene.prototype.calcFitness = function() {
                           }
                           else{
                             conflict+=1;
-                            fitness+=1;
+                            fitness+=2;
                           }
                             if(this.genotype[i].product_camF>=demand.product_camF)
                             {//console.log("camF");
@@ -287,7 +287,7 @@ Gene.prototype.calcFitness = function() {
                               }
                               else{
                                 conflict+=1;
-                                fitness+=1;
+                                fitness+=2;
                               }
                               if(this.genotype[i].product_weight <= demand.product_weight)
                               {//console.log("weight");
@@ -295,7 +295,7 @@ Gene.prototype.calcFitness = function() {
                             }
                             else{
                               conflict+=1;
-                              fitness+=1;
+                              fitness+=2;
                             }
                                 if(this.genotype[i].product_reso.match(demand.product_reso))
                                 {//console.log("reso");
@@ -303,15 +303,15 @@ Gene.prototype.calcFitness = function() {
                                  }
                                  else{
                                   conflict+=1;
-                                  fitness+=1;
+                                  fitness+=2;
                                 }
                                   if(this.genotype[i].product_chipset.match(demand.product_brand))
-                                  {// console.log("brand");
+                                  {
                                       fitness+=5;
                                   }
                                   else{
                                     conflict+=1;
-                                    fitness+=1;
+                                    fitness+=3;
                                   }
                                   if(this.genotype[i].product_gpu.match(demand.product_gpu))
                                   {// console.log("brand");
@@ -319,7 +319,7 @@ Gene.prototype.calcFitness = function() {
                                   }
                                   else{
                                     conflict+=1;
-                                    fitness+=1;
+                                    fitness+=3;
                                   }
                                   if(this.genotype[i].product_ram.match(demand.product_ram))
                                   {// console.log("ram");
@@ -327,7 +327,7 @@ Gene.prototype.calcFitness = function() {
                                   }
                                   else{
                                     conflict+=1;
-                                    fitness+=1;
+                                    fitness+=2;
                                   }
                                     if(this.genotype[i].product_storage.match(demand.product_storage))
                                     {// console.log("storage");
@@ -335,7 +335,7 @@ Gene.prototype.calcFitness = function() {
                                       }
                                       else{
                                         conflict+=1;
-                                        fitness+=1;
+                                        fitness+=2;
                                       }
                                       if(this.genotype[i].product_batcap <= demand.product_batcap)
                                       {//console.log("batcap");
@@ -343,14 +343,14 @@ Gene.prototype.calcFitness = function() {
                                         }
                                         else{
                                           conflict+=1;
-                                          fitness+=1;
+                                          fitness+=2;
                                         }
                                         if(this.genotype[i].product_battype.match(demand.product_battype))
                                         { //console.log("battype");
                                           fitness+=5;
                                         }    else{
                                           conflict+=1;
-                                          fitness+=1;
+                                          fitness+=3;
                                         }
                                         fitness_chrome=fitness_chrome+(fitness/100)*(100/3);
                                       

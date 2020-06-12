@@ -72,7 +72,7 @@ GeneSmart: (req, res) => {
     var temp1;
     var population=100;
     let chrome=[];
-    var generation=100;
+    var generation=180;
   for (g=0;g< generation;g++){
    if(g==0){
     for(x=0;x<population;x++){
@@ -214,10 +214,10 @@ Gene.prototype.calcFitness = function() {
       }
       else{
         conflict+=1;
-        fitness+=2;
+        fitness+=5;
       }
         
-         if(this.genotype[i].product_price <= demand.product_price)
+         if(this.genotype[i].product_price <= demand.product_price||this.genotype[i].product_price== NaN)
          { //console.log("price");
          fitness+=10;
           }
@@ -239,7 +239,7 @@ Gene.prototype.calcFitness = function() {
               }
               else{
                 conflict+=1;
-                fitness+=2;
+                fitness+=3;
               }
                 if(this.genotype[i].product_size>=demand.product_size)
                 {//console.log("size");
@@ -247,7 +247,7 @@ Gene.prototype.calcFitness = function() {
                   }
                   else{
                     conflict+=1;
-                    fitness+=2;
+                    fitness+=3;
                   }
                     if(this.genotype[i].product_ryear>=demand.product_ryear)
                     {//console.log("ryear");
@@ -255,7 +255,7 @@ Gene.prototype.calcFitness = function() {
                       }
                       else{
                         conflict+=1;
-                        fitness+=2;
+                        fitness+=3;
                       }
                       if(this.genotype[i].product_sctype.match(demand.product_sctype))
                       { 
@@ -263,7 +263,7 @@ Gene.prototype.calcFitness = function() {
                       }
                       else{
                         conflict+=1;
-                        fitness+=2;
+                        fitness+=3;
                       }
                         if(this.genotype[i].product_camnum.match(demand.myCamnum))
                         { //console.log("camnum");
@@ -271,7 +271,7 @@ Gene.prototype.calcFitness = function() {
                         }
                         else{
                           conflict+=1;
-                          fitness+=2;
+                          fitness+=3;
                         }
                           if(this.genotype[i].product_camR>=demand.product_camR)
                           {// console.log("camR");
@@ -279,7 +279,7 @@ Gene.prototype.calcFitness = function() {
                           }
                           else{
                             conflict+=1;
-                            fitness+=2;
+                            fitness+=3;
                           }
                             if(this.genotype[i].product_camF>=demand.product_camF)
                             {//console.log("camF");
@@ -287,7 +287,7 @@ Gene.prototype.calcFitness = function() {
                               }
                               else{
                                 conflict+=1;
-                                fitness+=2;
+                                fitness+=3;
                               }
                               if(this.genotype[i].product_weight <= demand.product_weight)
                               {//console.log("weight");
@@ -295,7 +295,7 @@ Gene.prototype.calcFitness = function() {
                             }
                             else{
                               conflict+=1;
-                              fitness+=2;
+                              fitness+=3;
                             }
                                 if(this.genotype[i].product_reso.match(demand.product_reso))
                                 {//console.log("reso");
@@ -303,7 +303,7 @@ Gene.prototype.calcFitness = function() {
                                  }
                                  else{
                                   conflict+=1;
-                                  fitness+=2;
+                                  fitness+=3;
                                 }
                                   if(this.genotype[i].product_chipset.match(demand.product_brand))
                                   {
@@ -327,7 +327,7 @@ Gene.prototype.calcFitness = function() {
                                   }
                                   else{
                                     conflict+=1;
-                                    fitness+=2;
+                                    fitness+=3;
                                   }
                                     if(this.genotype[i].product_storage.match(demand.product_storage))
                                     {// console.log("storage");
@@ -335,7 +335,7 @@ Gene.prototype.calcFitness = function() {
                                       }
                                       else{
                                         conflict+=1;
-                                        fitness+=2;
+                                        fitness+=3;
                                       }
                                       if(this.genotype[i].product_batcap <= demand.product_batcap)
                                       {//console.log("batcap");
@@ -343,7 +343,7 @@ Gene.prototype.calcFitness = function() {
                                         }
                                         else{
                                           conflict+=1;
-                                          fitness+=2;
+                                          fitness+=3;
                                         }
                                         if(this.genotype[i].product_battype.match(demand.product_battype))
                                         { //console.log("battype");

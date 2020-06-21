@@ -192,8 +192,9 @@ module.exports = {
                 console.log("login"+req.session.username);
 				res.redirect('/admon');
 			} else {
-                //window.alert("Wrong Password or Username!"); 
-				res.redirect('/login');
+                //window.alert("Wrong Password or Username!");
+               res.send('Incorrect Username and/or Password!'); 
+				//res.redirect('/login');
             }
         			
 			res.end();
@@ -274,6 +275,69 @@ module.exports = {
         
                                 });
                             
+            },
+            ProfAdminPage: (req, res) => {
+                var user= req.session.username;
+                let query = 'SELECT * FROM `admin` WHERE admin_id = "' + user + '"';
+                if(req.session.username){
+                db.query(query, (err, result) => {
+                    if (err) {
+                        return res.status(500).send(err);
+                    }
+                    res.render('view_profadmin.ejs', {
+                        title:"Profile"
+                        ,admin: result[0]
+                        ,message: 'meow'
+                    });
+                });
+            }
+            else {
+                    res.write('<h1>Please login first.</h1>');
+                    res.write('<a href="/">Login</a>');
+                    res.end();}
+            },
+            ProfEditPage: (req, res) => {
+                let user = req.params.id;
+                let query = 'SELECT * FROM `admin` WHERE admin_id = "' + user + '"';
+                if(req.session.username){
+                db.query(query, (err, result) => {
+                    if (err) {
+                        return res.status(500).send(err);
+                    }
+                    res.render('edit_adminprof.ejs', {
+                        title:"Edit Profile"
+                        ,admin: result[0]
+                        ,message: ''
+                    });
+                });
+            }
+            else {
+                    res.write('<h1>Please login first.</h1>');
+                    res.write('<a href="/">Login</a>');
+                    res.end();}
+            },
+            ProfEdit: (req, res) => {
+                let user = req.params.id;
+                //let admin_id = req.admin.id;
+                let admin_name = req.body.admin_name;
+                let admin_address = req.body.admin_address;
+                let admin_birth = req.body.admin_birth;
+                let admin_brand= req.body.admin_brand;
+                let admin_password = req.body.admin_password;
+                let admin_phone = req.body.admin_phone;
+                let admin_email = req.body.admin_email;
+                let queryy="UPDATE `admin` SET `admin_name` = '" + admin_name   + "', `admin_address` = '" + admin_address + "', `admin_birth` = '" + admin_birth   + "', `admin_brand` = '" + admin_brand     + "', `admin_password` = '" + admin_password + "', `admin_phone` = '" + admin_phone     + "', `admin_email` = '" + admin_email     + "' WHERE `admin_id` = '" + user + "'";
+    
+                db.query(queryy,function(error, result, fields){
+                    if (error) {
+                        return res.status(500).send(err);
+                    }
+                    else{
+                        console.log(result.affectedRows + " record(s) updated");
+                        res.redirect('/profile');
+                    }
+                    
+                });
             },
             
 };

@@ -270,6 +270,7 @@ table, td, th {
   font-size: 18px;
 }
 
+
 .card button:hover {
   opacity: 0.7;
 }
@@ -357,6 +358,20 @@ table, td, th {
   line-height: 40px;
   margin: 0 0 20px 0;
 }
+.buttonn {
+  background-color: #f44336; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 40px 20px;
+  cursor: pointer;
+}
+
+.buttonn4 {border-radius: 12px;}
 </style>
 
 <!-- Navbar -->
@@ -364,24 +379,16 @@ table, td, th {
   <a class="active" href="/">Home</a>
   <a href="/login">LOG-IN</a>
   <a href="/register">JOIN US</a>
-  <div class="dropdown">
-    <button class="dropbtn">BRAND
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </div>
   <div class="dropdown_">
-    <button class="dropbtn_">Dropdown 
+    <button class="dropbtn_">Brand 
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content_">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+      <a href="/display/<%= 2 %>">Huawei</a>
+      <a href="/display/<%= 3 %>">Oppo</a>
+      <a href="/display/<%= 1 %>">Samsung</a>
+      <a href="/display/<%= 4 %>">Vivo</a>
+      <a href="/display/<%= 5 %>">Xiaomi</a>
     </div>
   </div> 
   <div class="search-container">

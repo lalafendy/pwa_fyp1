@@ -26,4 +26,18 @@ module.exports = {
             });
         
     },
+    BrandSmart: (req, res) => {
+        let brand_id = req.params.id;
+            let query = 'SELECT * FROM `smartphone` where product_brand = "' + brand_id + '"';
+            db.query(query, (err, result) => {
+                if (err) {
+                    return res.status(500).send(err);
+                }
+                res.render('brand_smart.ejs', {
+                    title:"Home Brand"
+                    ,product: result
+                });
+            });
+        
+    },
 };

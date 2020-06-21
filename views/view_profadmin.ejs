@@ -1,0 +1,55 @@
+<%- include ('partials/header'); -%>
+
+<div class="table-wrapper">
+    <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/logoutt" title="logout">Logout</a></div> 
+    <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/add" title="Add a New Product">ADD</a></div> 
+    <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/profile" title="Profile">Profile</a></div> 
+</div> 
+<div class="container">
+    <% if (admin) {%>
+    <table class="smarttable">
+    <thead>
+    <th>DETAILS</th>
+    </thead>
+    <tbody>
+<tr>
+    <td>ID</td>
+    <td><%= admin.admin_name %></td>
+    </tr>
+    <tr>
+    <td>NAME</td>
+    <td><%= admin.admin_address %></td>
+    </tr>
+    <tr>
+    <td>BIRTH DATE</td>
+    <td><%= admin.admin_birth %></td>
+    </tr>
+    <tr>
+    <td>BRAND</td>
+    <td><%= admin.admin_brand %></td>
+    </tr>
+    <tr>
+    <td>PASSWORD</td>
+    <td><%= admin.admin_password %></td>
+    </tr>
+    <tr>
+    <td>PHONE</td>
+    <td><%= admin.admin_phone %></td>
+    </tr>
+    <tr>
+    <td>EMAIL</td>
+    <td><%= admin.admin_email %></td>
+    </tr>
+    </tbody>
+    </table>
+    <a href="/editprof/<%= admin.admin_id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+</div>
+
+<% } else { %>
+    <p class="text-center">No players found. Go <a href="/add" >here</a> to add players.</p>
+<% } %>
+
+</body>
+
+<script src='loader.js'></script>
+</html>

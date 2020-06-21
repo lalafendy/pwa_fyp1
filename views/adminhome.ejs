@@ -1,8 +1,9 @@
 <%- include ('partials/header'); -%>
 <div class="table-wrapper">
-    <a class="float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/add" title="Add a New Product">ADD</a>
-    <a class="float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/logoutt" title="logout">Logout</a>
-    <% if (product.length > 0) {%>
+   <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/logoutt" title="logout">Logout</a></div> 
+   <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/add" title="Add a New Product">ADD</a></div> 
+   <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/profile" title="Profile">Profile</a></div> 
+   <% if (product.length > 0) {%>
         <table class="table table-hovered">
             <thead class="thead-dark">
                 <tr>

@@ -40,4 +40,18 @@ module.exports = {
             });
         
     },
+    getSearchPage: (req, res) => {
+        var name = req.body.product_name;
+        var sql = 'SELECT * FROM smartphone WHERE product_name LIKE ?';
+        db.query(sql, [name], function (err, result) {
+         if (err) throw err;
+            else
+             res.render('result.ejs', {
+             title:"Search Result"
+             ,product: result
+});
+
+});
+        
+    },
 };

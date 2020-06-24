@@ -50,7 +50,7 @@ module.exports = {
         let product_admin = req.session.username;
             console.log(product_admin)
 
-        let usernameQuery = "SELECT * FROM `first` WHERE product_name = '" + product_name + "'";
+        let usernameQuery = "SELECT * FROM `smartphone` WHERE product_name = '" + product_name + "'";
         
         db.query(usernameQuery, (err, result) => {
             if (err) {
@@ -58,20 +58,20 @@ module.exports = {
             }
             if (result.length > 0) {
                 message = 'Username already exists';
-                res.render('add-smart.ejs', {
+                res.render('add_smart.ejs', {
                     message,
-                    title: "Welcome to Socka | Add a new smartphone"
+                    title: "Welcome to SRcS | Add a new smartphone"
                 });
            }
             else {
-                    let query = "INSERT INTO `first` ( `product_name`, `product_price`, `product_brand`, `product_image`, `product_model`, `product_status`, `product_ryear`, `product_dimension`, `product_weight`, `product_colour`, `product_material`, `product_sim`, `product_size`, `product_sctype`, `product_reso`, `product_ppi`, `product_speed`, `product_camnum`, `product_camR`, `product_camF`, `product_software`, `product_chipset`, `product_cpu`, `product_gpu`, `product_ram`, `product_storage`, `product_cslot`, `product_battype`, `product_batcap`, `product_battremove`, `product_wirelesscharge`, `product_sound`, `product_sensor`, `product_bluetooth`, `product_gps`, `product_USB`, `product_WiFi`, `product_admin`) VALUES ( '" + product_name  + "', '" + product_price  + "','" + product_brand  + "','" + product_image  + "', '"  + product_model + "','"  + product_status  + "', '"  + product_ryear  + "', '"  + product_dimension  + "', '"  + product_weight  + "', '"  + product_colour  + "', '"  + product_material  + "', '"  + product_sim  + "', '"  + product_size  + "', '"  + product_sctype + "', '"  + product_reso  + "', '"  + product_ppi  + "', '"  + product_speed  + "', '"  + product_camnum  + "', '"  + product_camR  + "', '"  + product_camF  + "', '"  + product_software  + "', '"  + product_chipset  + "', '"  + product_cpu  + "', '"  + product_gpu  + "', '"  + product_ram  + "', '"  + product_storage  + "', '"  + product_cslot  + "', '"  + product_battype  + "', '"  + product_batcap  + "', '"  + product_battremove  + "', '"  + product_wirelesscharge  + "', '"  + product_sound  + "', '"  + product_sensor  + "', '"  + product_bluetooth  + "', '"  + product_gps  + "', '"  + product_USB + "', '"  + product_WiFi + "','" + product_admin +"')";
+                    let query = "INSERT INTO `smartphone` ( `product_name`, `product_price`, `product_brand`, `product_image`, `product_model`, `product_status`, `product_ryear`, `product_dimension`, `product_weight`, `product_colour`, `product_material`, `product_sim`, `product_size`, `product_sctype`, `product_reso`, `product_ppi`, `product_speed`, `product_camnum`, `product_camR`, `product_camF`, `product_software`, `product_chipset`, `product_cpu`, `product_gpu`, `product_ram`, `product_storage`, `product_cslot`, `product_battype`, `product_batcap`, `product_battremove`, `product_wirelesscharge`, `product_sound`, `product_sensor`, `product_bluetooth`, `product_gps`, `product_USB`, `product_WiFi`, `product_admin`) VALUES ( '" + product_name  + "', '" + product_price  + "','" + product_brand  + "','" + product_image  + "', '"  + product_model + "','"  + product_status  + "', '"  + product_ryear  + "', '"  + product_dimension  + "', '"  + product_weight  + "', '"  + product_colour  + "', '"  + product_material  + "', '"  + product_sim  + "', '"  + product_size  + "', '"  + product_sctype + "', '"  + product_reso  + "', '"  + product_ppi  + "', '"  + product_speed  + "', '"  + product_camnum  + "', '"  + product_camR  + "', '"  + product_camF  + "', '"  + product_software  + "', '"  + product_chipset  + "', '"  + product_cpu  + "', '"  + product_gpu  + "', '"  + product_ram  + "', '"  + product_storage  + "', '"  + product_cslot  + "', '"  + product_battype  + "', '"  + product_batcap  + "', '"  + product_battremove  + "', '"  + product_wirelesscharge  + "', '"  + product_sound  + "', '"  + product_sensor  + "', '"  + product_bluetooth  + "', '"  + product_gps  + "', '"  + product_USB + "', '"  + product_WiFi + "','" + product_admin +"')";
                         db.query(query, (err, result) => {
                             if (err) {
                                 return res.status(500).send(err);
                             }
                             else{
                                 console.log(result.affectedRows + " record(s) inserted");
-                                res.redirect('/');
+                                res.redirect('/admin');
                             }
 
                         });
@@ -85,7 +85,7 @@ module.exports = {
     },
     editSmartPage: (req, res) => {
         let product_id = req.params.id;
-        let query = "SELECT * FROM `first` WHERE product_id = " + product_id + " ";
+        let query = "SELECT * FROM `smartphone` WHERE product_id = " + product_id + " ";
         if(req.session.username){
         db.query(query, (err, result) => {
             if (err) {
@@ -142,14 +142,14 @@ module.exports = {
         let product_USB = req.body.product_USB;
         let product_WiFi = req.body.product_WiFi;
        console.log(product_id);
-        let queryy="UPDATE `first` SET `product_name` = '" + product_name + "',`product_price` = '" + product_price   + "', `product_brand` = '" + product_brand + "', `product_model` = '" + product_model   + "', `product_status` = '" + product_status     + "', `product_ryear` = '" + product_ryear + "', `product_dimension` = '" + product_dimension     + "', `product_weight` = '" + product_weight     + "', `product_colour` = '" + product_colour     + "', `product_material` = '" + product_material     + "', `product_sim` = '" + product_sim     + "', `product_size` = '" + product_size     + "', `product_sctype` = '" + product_sctype    + "', `product_reso` = '" + product_reso     + "', `product_ppi` = '" + product_ppi     + "', `product_speed` = '" + product_speed     + "', `product_camnum` = '" + product_camnum     + "', `product_camR` = '" + product_camR     + "', `product_camF` = '" + product_camF     + "', `product_software` = '" + product_software     + "', `product_chipset` = '" + product_chipset     + "', `product_cpu` = '" + product_cpu     + "', `product_gpu` = '" + product_gpu     + "', `product_ram` = '" + product_ram     + "', `product_storage` = '" + product_storage     + "', `product_cslot` = '" + product_cslot     + "', `product_battype` = '" + product_battype     + "', `product_batcap` = '" + product_batcap     + "', `product_battremove` = '" + product_battremove     + "', `product_wirelesscharge` = '" + product_wirelesscharge     + "', `product_sound` = '" + product_sound     + "', `product_sensor` = '" + product_sensor     + "', `product_bluetooth` = '" + product_bluetooth     + "', `product_gps` = '" + product_gps     + "', `product_USB` = '" + product_USB    + "', `product_WiFi` = '" + product_WiFi + "' WHERE `product_id` = '" + product_id + "'";
+        let queryy="UPDATE `smartphone` SET `product_name` = '" + product_name + "',`product_price` = '" + product_price   + "', `product_brand` = '" + product_brand + "', `product_model` = '" + product_model   + "', `product_status` = '" + product_status     + "', `product_ryear` = '" + product_ryear + "', `product_dimension` = '" + product_dimension     + "', `product_weight` = '" + product_weight     + "', `product_colour` = '" + product_colour     + "', `product_material` = '" + product_material     + "', `product_sim` = '" + product_sim     + "', `product_size` = '" + product_size     + "', `product_sctype` = '" + product_sctype    + "', `product_reso` = '" + product_reso     + "', `product_ppi` = '" + product_ppi     + "', `product_speed` = '" + product_speed     + "', `product_camnum` = '" + product_camnum     + "', `product_camR` = '" + product_camR     + "', `product_camF` = '" + product_camF     + "', `product_software` = '" + product_software     + "', `product_chipset` = '" + product_chipset     + "', `product_cpu` = '" + product_cpu     + "', `product_gpu` = '" + product_gpu     + "', `product_ram` = '" + product_ram     + "', `product_storage` = '" + product_storage     + "', `product_cslot` = '" + product_cslot     + "', `product_battype` = '" + product_battype     + "', `product_batcap` = '" + product_batcap     + "', `product_battremove` = '" + product_battremove     + "', `product_wirelesscharge` = '" + product_wirelesscharge     + "', `product_sound` = '" + product_sound     + "', `product_sensor` = '" + product_sensor     + "', `product_bluetooth` = '" + product_bluetooth     + "', `product_gps` = '" + product_gps     + "', `product_USB` = '" + product_USB    + "', `product_WiFi` = '" + product_WiFi + "' WHERE `product_id` = '" + product_id + "'";
         db.query(queryy,function(error, result, fields){
             if (error) {
                 return res.status(500).send(err);
             }
             else{
                 console.log(result.affectedRows + " record(s) updated");
-                res.redirect('/');
+                res.redirect('/admin');
             }
             
         });
@@ -160,10 +160,10 @@ module.exports = {
             console.log("keluar");
             res.redirect('/');
     },
-    meow: (req, res) => {
+    AdminHomePage: (req, res) => {
         var user= req.session.username;
-        console.log("hello"+user);
-        let query = 'SELECT * FROM `first` where product_admin = "' + user + '"';
+        console.log("hello "+user);
+        let query = 'SELECT * FROM `smartphone` where product_admin = "' + user + '"';
          db.query(query, (err, result) => {
         if (err) {
             return res.status(500).send(err);
@@ -190,7 +190,7 @@ module.exports = {
 				req.session.loggedin = true;
                 req.session.username = result[0].admin_id;
                 console.log("login"+req.session.username);
-				res.redirect('/admon');
+				res.redirect('/admin');
 			} else {
                 //window.alert("Wrong Password or Username!");
                res.send('Incorrect Username and/or Password!'); 
@@ -226,7 +226,7 @@ module.exports = {
     },
     deleteSmart: (req, res) => {
         let product_id = req.params.id;
-        let deleteUserQuery = 'DELETE FROM first WHERE product_id = "' + product_id + '"';
+        let deleteUserQuery = 'DELETE FROM smartphone WHERE product_id = "' + product_id + '"';
                if(req.session.username){
                 db.query(deleteUserQuery, (err, result) => {
                     if (err) {
@@ -234,7 +234,7 @@ module.exports = {
                     }
                     else{
                         console.log(result.affectedRows + " record(s) Deleted");
-                        res.redirect('/');
+                        res.redirect('/admin');
                     }
                 });
             } 
@@ -326,11 +326,10 @@ module.exports = {
                 let admin_password = req.body.admin_password;
                 let admin_phone = req.body.admin_phone;
                 let admin_email = req.body.admin_email;
-                let queryy="UPDATE `admin` SET `admin_name` = '" + admin_name   + "', `admin_address` = '" + admin_address + "', `admin_birth` = '" + admin_birth   + "', `admin_brand` = '" + admin_brand     + "', `admin_password` = '" + admin_password + "', `admin_phone` = '" + admin_phone     + "', `admin_email` = '" + admin_email     + "' WHERE `admin_id` = '" + user + "'";
-    
+                let queryy= "UPDATE `admin` SET `admin_name` = '" + admin_name + "', `admin_address` = '" + admin_address + "', `admin_birth` = '" + admin_birth + "',`admin_brand` = '" + admin_brand + "',`admin_password` = '" + admin_password + "', `admin_phone` = '" + admin_phone + "',`admin_email` = '" + admin_email + "' WHERE `admin_id` = '" + user + "'";
                 db.query(queryy,function(error, result, fields){
                     if (error) {
-                        return res.status(500).send(err);
+                        return res.status(500).send(error);
                     }
                     else{
                         console.log(result.affectedRows + " record(s) updated");

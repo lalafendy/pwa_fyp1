@@ -1,4 +1,10 @@
 <%- include ('partials/header'); -%>
+<div class="table-wrapper">
+    <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/logoutt" title="logout">Logout</a></div> 
+    <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/add" title="Add a New Product">ADD</a></div> 
+    <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/profile" title="Profile">Profile</a></div> 
+    <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/admin" title="ADHome">ADHome</a></div> 
+</div> 
     <div class="container">
         <% if (message != '') { %>
             <p class="text-center text-danger"><%= message %></p>
@@ -6,27 +12,31 @@
         <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-4">
+                    <label for="add_name">Name : </label>
                     <input type="text" class="form-control" name="product_name" id="product_name" placeholder="Name" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_price">Price : </label>
                     <input type="text" class="form-control" name="product_price" id="product_price" placeholder="Price" required>
                 </div>
                 <div class="form-group col-md-6">
+                    <label for="add_brand">Brand : </label>
                     <select id="product_brand" name="product_brand" class="form-control" required>
                         <option selected disabled>Choose Brand</option>
-                        <option>Oppo</option>
-                        <option>Samsung</option>
-                        <option>Huawei</option>
-                        <option>Vivo</option>
-                        <option>Xiaomi</option>
+                        <option value=3>Oppo</option>
+                        <option value=1>Samsung</option>
+                        <option value=2>Huawei</option>
+                        <option value=4>Vivo</option>
+                        <option value=5>Xiaomi</option>
                     </select>
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="product_model"><b>Model</b></label><br>
+                    <label for="add_model">Model :</label>
                     <input type="text" class="form-control" name="product_model" id="product_model" placeholder="Model" required>
                 </div>
                
                 <div class="form-group col-md-6">
+                    <label for="add_status">Status : </label>
                     <select id="product_status" name="product_status" class="form-control" required>
                         <option selected disabled>Status</option>
                         <option>Available</option>
@@ -34,100 +44,143 @@
                     </select>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_ryear">Year Release : </label>
                     <input type="text" class="form-control" name="product_ryear" id="product_ryear" placeholder="Release Year" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_dimension">Dimension : </label>
                     <input type="text" class="form-control" name="product_dimension" id="product_dimension" placeholder="Dimension" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_weight">Weight : </label>
                     <input type="text" class="form-control" name="product_weight" id="product_weight" placeholder="Weight" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_colour">Colour : </label>
                     <input type="text" class="form-control" name="product_colour" id="product_colour" placeholder="Colour" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_material">Material : </label>
                     <input type="text" class="form-control" name="product_material" id="product_material" placeholder="Material" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_sim">Sim Card : </label>
                     <input type="text" class="form-control" name="product_sim" id="product_sim" placeholder="Sim Card" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_size">Size : </label>
                     <input type="text" class="form-control" name="product_size" id="product_size" placeholder="Size" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_sctype">Screen Type : </label>
                     <input type="text" class="form-control" name="product_sctype" id="product_sctype" placeholder="Screen Type" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_reso">Screen Resolution : </label>
                     <input type="text" class="form-control" name="product_reso" id="product_reso" placeholder="Resolutions" required>
                 </div>
 
                 <div class="form-group col-md-4">
+                    <label for="add_ppi">ppi Density : </label>
                     <input type="text" class="form-control" name="product_ppi" id="product_ppi" placeholder="ppi Density" required>
                 </div>
 
                 <div class="form-group col-md-4">
+                    <label for="add_speed">Networks Speed : </label>
                     <input type="text" class="form-control" name="product_speed" id="product_speed" placeholder=" Speed" required>
                 </div>
                 <div class="form-group col-md-4">
-                    <input type="text" class="form-control" name="product_camnum" id="product_camnum" placeholder="Camera Quantity" required>
+                    <label for="add_camnum">Camera Type : </label>
+                    <select id="product_camnum" name="product_camnum" class="form-control" required>
+                        <option>Rear</option>
+                        <option>Rear Dual</option>
+                        <option>Rear Triple</option>
+                        <option>Rear Quadraple</option>
+                    </select>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_camR">Rear Camera (MP) : </label>
                     <input type="text" class="form-control" name="product_camR" id="product_camR" placeholder="Rear Camera" required>
                 </div>
 
                 <div class="form-group col-md-4">
+                    <label for="add_camF">Front Camera (MP) : </label>
                     <input type="text" class="form-control" name="product_camF" id="product_camF" placeholder="Front Camera" required>
                 </div>
 
                 <div class="form-group col-md-4">
+                    <label for="add_software">OS : </label>
                     <input type="text" class="form-control" name="product_software" id="product_software" placeholder="Operating System" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_chipset">Chipset : </label>
                     <input type="text" class="form-control" name="product_chipset" id="product_chipset" placeholder="Chipset" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_cpu">CPU : </label>
                     <input type="text" class="form-control" name="product_cpu" id="product_cpu" placeholder="CPU" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_gpu">GPU : </label>
                     <input type="text" class="form-control" name="product_gpu" id="product_gpu" placeholder="GPU" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_ram">RAM : </label>
                     <input type="text" class="form-control" name="product_ram" id="product_ram" placeholder="RAM" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_storage">Storage : </label>
                     <input type="text" class="form-control" name="product_storage" id="product_storage" placeholder="Storage" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_cslot">Card Slot : </label>
                     <input type="text" class="form-control" name="product_cslot" id="product_cslot" placeholder="Card Slot" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_battype">Battery Type : </label>
                     <input type="text" class="form-control" name="product_battype" id="product_battype" placeholder="Battery Name" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_batcap">Battery Capacity : </label>
                     <input type="text" class="form-control" name="product_batcap" id="product_batcap" placeholder="Capacity Battery" required>
                 </div>
                 <div class="form-group col-md-4">
-                    <input type="text" class="form-control" name="product_battremove" id="product_battremove" placeholder="Battery Removable" required>
+                    <label for="add_battremove">Battery Removable : </label>
+                    <select id="product_battremove" name="product_battremove" class="form-control" required>
+                        <option>Removable</option>
+                        <option>Non-Removable</option>
+                    </select>
                 </div>
                 <div class="form-group col-md-4">
-                    <input type="text" class="form-control" name="product_wirelesscharge" id="product_wirelesscharge" placeholder="Wireless Charge" required>
+                    <label for="add_wirelesscharge">Wireless Charge : </label>
+                    <select id="product_wirelesscharge" name="product_wirelesscharge" class="form-control" required>
+                        <option selected disabled>Wireless Charge</option>
+                        <option value=Yes>Yes</option>
+                        <option value=No>No</option>
+                    </select>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_sound">Sound : </label>
                     <input type="text" class="form-control" name="product_sound" id="product_sound" placeholder="Sound" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_sensor">Sensor : </label>
                     <input type="text" class="form-control" name="product_sensor" id="product_sensor" placeholder="Sensor" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_bluetooth">Bluetooth : </label>
                     <input type="text" class="form-control" name="product_bluetooth" id="product_bluetooth" placeholder="Bluetooth" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_gps">GPS : </label>
                     <input type="text" class="form-control" name="product_gps" id="product_gps" placeholder="GPS" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_USB">USB : </label>
                     <input type="text" class="form-control" name="product_USB" id="product_USB" placeholder="USB" required>
                 </div>
                 <div class="form-group col-md-4">
+                    <label for="add_WiFi">WiFi : </label>
                     <input type="text" class="form-control" name="product_WiFi" id="product_WiFi" placeholder="WiFi" required>
                 </div>
             </div>

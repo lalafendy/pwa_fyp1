@@ -6,9 +6,9 @@ const path = require('path');
 const app = express();
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
-const {getHomePage,viewSmart,BrandSmart} = require('./routes/index');
+const {getHomePage,viewSmart,BrandSmart, getSearchPage} = require('./routes/index');
 const {GenePage,GeneSmart} = require('./routes/genetic');
-const {logout,addSmartPage, addSmart, deleteSmart, editSmart, editSmartPage,loginSmartPage,loginSmart,meow,regPage,regSmart,ProfAdminPage,ProfEditPage,ProfEdit} = require('./routes/admin');
+const {logout,addSmartPage, addSmart, deleteSmart, editSmart, editSmartPage,loginSmartPage,loginSmart,AdminHomePage,regPage,regSmart,ProfAdminPage,ProfEditPage,ProfEdit} = require('./routes/admin');
 const port = 5030;
 const https = require('https');
 const httpsPort = 5020;
@@ -55,6 +55,7 @@ app.get('/gene', GenePage);
 app.get('/add', addSmartPage);
 app.get('/display/:id', BrandSmart);
 app.get('/register', regPage);
+app.get('/search', getSearchPage);
 app.get('/edit/:id', editSmartPage);
 app.get('/editprof/:id', ProfEditPage);
 app.post('/editprof/:id', ProfEdit);
@@ -68,7 +69,7 @@ app.post('/genedata', GeneSmart);
 app.post('/register', regSmart);
 app.post('/auth', loginSmart);
 app.post('/edit/:id', editSmart);
-app.get('/admon',meow);
+app.get('/admin',AdminHomePage);
 //add the manifest
 app.get("/manifest.json", function(req, res){
     //send the correct headers

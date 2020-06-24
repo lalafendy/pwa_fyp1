@@ -1,4 +1,10 @@
 <%- include ('partials/header'); -%>
+<div class="table-wrapper">
+    <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/logoutt" title="logout">Logout</a></div> 
+    <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/add" title="Add a New Product">ADD</a></div> 
+    <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/profile" title="Profile">Profile</a></div> 
+    <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/admin" title="ADHome">ADHome</a></div> 
+</div> 
 <div class="container">
     <% if (message) { %>
         <p class="text-center text-danger"><%= message %></p>
@@ -25,15 +31,12 @@
                     <label for="prod-brand">Brand</label>
                     <select id="product_brand" name="product_brand" class="form-control" required>
                         <option selected><%= product.product_brand %></option>
-                        <option>Rear</option>
-                        <option>Rear Dual</option>
-                        <option>Rear Triple</option>
-                        <option>Rear Quadraple</option>
+                        <option value=3>Oppo</option>
+                        <option value=1>Samsung</option>
+                        <option value=2>Huawei</option>
+                        <option value=4>Vivo</option>
+                        <option value=5>Xiaomi</option>
                     </select>
-                </div>
-                <div class="form-group col-md-12">
-                    <label for="prod-img"><b>Player Image</b></label><br>
-                    <input type="file" name="product_image" id="product_image" value="<%= product.product_image %>">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="prod-model">Model</label>
@@ -169,7 +172,11 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="prod-wirelesscharge">Wireless Charge</label>
-                    <input type="text" class="form-control" name="product_wirelesscharge" id="product_wirelesscharge" value="<%= product.product_wirelesscharge %>" required>
+                    <select id="product_wirelesscharge" name="product_wirelesscharge" class="form-control" required>
+                        <option selected disabled>Wireless Charge</option>
+                        <option value=Yes>Yes</option>
+                        <option value=No>No</option>
+                    </select>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="prod-sound">Sound</label>
@@ -183,7 +190,7 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="prod-bluetooth">Bluetooth</label>
-                    <input type="text" class="form-control" name="product_bluetooth" id="product_bluetooth" value="<%= product.product_bluetooth %>" required>
+                    <input type="text" class="form-control" name="product_bluetooth" id="product_bluetooth" value="<%= product.product_Bluetooth %>" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="prod-gps">GPS</label>
@@ -207,7 +214,7 @@
             <button type="submit" class="btn btn-success float-right">Update Product</button>
         </form>
     <% } else { %>
-        <p class="text-center">Player Not Found. Go <a href="/add">here</a> to add players.</p>
+        <p class="text-center">No product found. Go <a href="/add">here</a> to add products.</p>
     <% } %>
 </div>
 </body>

@@ -4,6 +4,7 @@
     <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/logoutt" title="logout">Logout</a></div> 
     <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/add" title="Add a New Product">ADD</a></div> 
     <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/profile" title="Profile">Profile</a></div> 
+    <div><a class="buttonn buttonn4 float-right w3-button w3-xxxlarge w3-teal w3-hover-purple" href="/admin" title="ADHome">ADHome</a></div> 
 </div> 
 <div class="container">
     <% if (admin) {%>
@@ -42,11 +43,11 @@
     </tr>
     </tbody>
     </table>
-    <a href="/editprof/<%= admin.admin_id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+    <a href="/editprof/<%= admin.admin_id %>" target="_blank" rel="noopener" class="buttonn buttonn4">Edit</a>
 </div>
 
 <% } else { %>
-    <p class="text-center">No players found. Go <a href="/add" >here</a> to add players.</p>
+    <p class="text-center">No Admin Found. Go <a href="/add" >here</a> to add players.</p>
 <% } %>
 
 </body>

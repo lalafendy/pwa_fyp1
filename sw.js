@@ -1,79 +1,89 @@
-self.addEventListener('install', (event) => {
-  console.info('Event: Install');
+const staticCacheName = 'site-static-v2';
+const dynamicCacheName = 'site-dynamic-v1';
+const assets = [
+  "./",
+  "/login",
+  "/loader.js",
+  "/routes/admin.js",
+  "/app.js",
+  "/routes/genetic.js",
+  "/routes/index.js",
+  "/auth",
+  "/views/partials/header.ejs",
+  "/views/add_smartphone.ejs",
+  "/views/adminhome.ejs",
+  "/views/brand_smart.ejs",
+  "/views/edit_adminprof.ejs",
+  "/views/edit_smart.ejs",
+  "/views/geneform.ejs",
+  "/views/index.ejs",
+  "/views/login_smart.ejs",
+  "/views/reg_smart.ejs",
+  "/views/result.ejs",
+  "/views/view_profadmin.ejs",
+  "/views/view_smart.ejs",
+  "/images/icons/icon-144x144.png",
+  "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
+  "https://www.w3schools.com/w3css/4/w3.css",
+  "https://fonts.googleapis.com/css?family=Lato",
+  "https://fonts.googleapis.com/css?family=Montserrat",
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+  
+];
 
-  event.waitUntil(
-    caches.open("static-cache")
-    .then((cache) => {
-      //[] of files to cache & if any of the file not present `addAll` will fail
-      return cache.addAll([
-          "./",
-          "/login",
-          "/loader.js",
-          "/admin.js",
-          "/app.js",
-          "/genetic.js",
-          "/index.js",
-          "/auth",
-          "/add",
-      ])
-      .then(() => {
-        console.info('All files are cached');
-        return self.skipWaiting(); //To forces the waiting service worker to become the active service worker
-      })
-      .catch((error) =>  {
-        console.error('Failed to cache', error);
-      })
+// cache size limit function
+const limitCacheSize = (name, size) => {
+  caches.open(name).then(cache => {
+    cache.keys().then(keys => {
+      if(keys.length > size){
+        cache.delete(keys[0]).then(limitCacheSize(name, size));
+      }
+    });
+  });
+};
+
+// install event
+self.addEventListener('install', evt => {
+  //console.log('service worker installed');
+  evt.waitUntil(
+    caches.open(staticCacheName).then((cache) => {
+      console.log('caching shell assets');
+      cache.addAll(assets);
     })
   );
 });
 
-
-self.addEventListener('fetch', (event) => {
-console.info('Event: Fetch');
-
-var request = event.request;
-
-//Tell the browser to wait for newtwork request and respond with below
-event.respondWith(
-  //If request is already in cache, return it
-  caches.match(request).then((response) => {
-    if (response) {
-      return response;
-    }
-
-    //if request is not cached, add it to cache
-    return fetch(request).then((response) => {
-      var responseToCache = response.clone();
-      caches.open("static-cache").then((cache) => {
-          cache.put(request, responseToCache).catch((err) => {
-            console.warn(request.url + ': ' + err.message);
-          });
-        });
-
-      return response;
-    });
-  })
-);
+// activate event
+self.addEventListener('activate', evt => {
+  //console.log('service worker activated');
+  evt.waitUntil(
+    caches.keys().then(keys => {
+      //console.log(keys);
+      return Promise.all(keys
+        .filter(key => key !== staticCacheName && key !== dynamicCacheName)
+        .map(key => caches.delete(key))
+      );
+    })
+  );
 });
 
-/*
-ACTIVATE EVENT: triggered once after registering, also used to clean up caches.
-*/
-
-//Adding `activate` event listener
-self.addEventListener('activate', (event) => {
-console.info('Event: Activate');
-
-//Remove old and unwanted caches
-event.waitUntil(
-  caches.keys().then((cacheNames) => {
-    return Promise.all(
-      cacheNames.map((cache) => {
-        if (cache !== "static-cache") {     //cacheName = 'cache-v1'
-          return caches.delete(cache); //Deleting the cache
-        }
-      })
-    );
-  })
-);
+// fetch event
+self.addEventListener('fetch', evt => {
+  //console.log('fetch event', evt);
+  evt.respondWith(
+    caches.match(evt.request).then(cacheRes => {
+      return cacheRes || fetch(evt.request).then(fetchRes => {
+        return caches.open(dynamicCacheName).then(cache => {
+          cache.put(evt.request.url, fetchRes.clone());
+          // check cached items size
+          limitCacheSize(dynamicCacheName, 3);
+          return fetchRes;
+        })
+      });
+    }).catch(() => {
+      if(evt.request.url.indexOf('.ejs') > -1){
+        return caches.match('/views/fallback.ejs');
+      } 
+    })
+  );
 });

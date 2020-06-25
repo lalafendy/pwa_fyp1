@@ -1,9 +1,10 @@
 const staticCacheName = 'site-static-v2';
 const dynamicCacheName = 'site-dynamic-v1';
 const assets = [
-  "./",
+  "/",
   "/login",
   "/loader.js",
+  "/views/fallback.ejs",
   "/routes/admin.js",
   "/app.js",
   "/routes/genetic.js",
@@ -81,7 +82,7 @@ self.addEventListener('fetch', evt => {
         })
       });
     }).catch(() => {
-      if(evt.request.url.indexOf('.ejs') > -1){
+      if(evt.request.url.indexOf('.js') > -1){
         return caches.match('/views/fallback.ejs');
       } 
     })

@@ -208,7 +208,7 @@ module.exports = {
         var user= req.session.username;
         console.log("home"+ user);
         if(req.session.loggedin){
-       let query = 'SELECT * FROM `first` where product_admin = "' + user + '"';
+       let query = 'SELECT * FROM `smartphone` where product_admin = "' + user + '"';
          db.query(query, (err, result) => {
         if (err) {
             return res.status(500).send(err);

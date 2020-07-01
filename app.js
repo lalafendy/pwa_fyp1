@@ -5,6 +5,7 @@ const mysql = require('mysql');
 const path = require('path');
 const app = express();
 var session = require('express-session');
+//onst popup = require('node-popup');
 var cookieParser = require('cookie-parser');
 const {getHomePage,viewSmart,BrandSmart, getSearchPage} = require('./routes/index');
 const {GenePage,GeneSmart} = require('./routes/genetic');

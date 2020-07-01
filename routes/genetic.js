@@ -217,9 +217,12 @@ Gene.prototype.calcFitness = function() {
         fitness+=5;
       }
         
-         if(this.genotype[i].product_price <= demand.product_price||this.genotype[i].product_price== NaN)
+         if(this.genotype[i].product_price < demand.product_price)
          { //console.log("price");
-         fitness+=10;
+            if((demand.product_price - this.genotype[i].product_price)<1000)
+              fitness+=10;
+                else
+                  fitness+=5;
           }
           else{
             conflict+=1;

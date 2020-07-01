@@ -4,7 +4,6 @@ const assets = [
   "/",
   "/login",
   "/loader.js",
-  "/views/fallback.ejs",
   "/routes/admin.js",
   "/app.js",
   "/routes/genetic.js",
@@ -21,14 +20,16 @@ const assets = [
   "/views/login_smart.ejs",
   "/views/reg_smart.ejs",
   "/views/result.ejs",
+  "/views/fallback.ejs",
   "/views/view_profadmin.ejs",
   "/views/view_smart.ejs",
   "/images/icons/icon-144x144.png",
-  "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
-  "https://www.w3schools.com/w3css/4/w3.css",
+  
+  
   "https://fonts.googleapis.com/css?family=Lato",
   "https://fonts.googleapis.com/css?family=Montserrat",
   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+ 
   
 ];
 
@@ -77,14 +78,10 @@ self.addEventListener('fetch', evt => {
         return caches.open(dynamicCacheName).then(cache => {
           cache.put(evt.request.url, fetchRes.clone());
           // check cached items size
-          limitCacheSize(dynamicCacheName, 3);
+          limitCacheSize(dynamicCacheName, 30);
           return fetchRes;
         })
       });
-    }).catch(() => {
-      if(evt.request.url.indexOf('.js') > -1){
-        return caches.match('/views/fallback.ejs');
-      } 
-    })
+    }).catch(() => caches.match('/views/fallback.ejs'))
   );
 });

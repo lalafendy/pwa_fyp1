@@ -1,4 +1,11 @@
 <%- include ('partials/header'); -%>
+<% if (success) { %>
+<% if (success !=''){ %>
+    <div style="text-align: center" class="alert alert-danger">
+        <strong><%= success %></strong>
+    </div>
+        <% } %>
+        <% } %>
 <div class="login-form">
     <h1>Login Form</h1>
     <form action="auth" method="POST">

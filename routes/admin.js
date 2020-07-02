@@ -170,14 +170,15 @@ module.exports = {
         }
         res.render('adminhome.ejs', {
             title:"Admin Home"
-            ,product: result
+            ,product: result,
+            
         });
     });
     },
     loginSmartPage: (req, res) => {
         res.render('login_smart.ejs', {
             title: "Welcome to SRcS | Login"
-            ,message: ''
+            ,success: ''
         });
     },
     loginSmart: (req, res)=>{
@@ -190,11 +191,14 @@ module.exports = {
 				req.session.loggedin = true;
                 req.session.username = result[0].admin_id;
                 console.log("login"+req.session.username);
-				res.redirect('/admin');
+                //req.flash('success','Succesfully log in');
+                res.redirect('/admin');
+                
 			} else {
-                //window.alert("Wrong Password or Username!");
-               res.send('Incorrect Username and/or Password!'); 
-				//res.redirect('/login');
+                res.render('login_smart.ejs', {
+                    title:"Admin Home"
+                    ,success: "Wrong password"
+                });
             }
         			
 			res.end();

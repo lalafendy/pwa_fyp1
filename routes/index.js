@@ -8,7 +8,8 @@ module.exports = {
             }
             res.render('index.ejs', {
                 title: "Welcome to SRcS | View Smartrphone"
-                ,product: results
+                ,product: results,
+                success:''
             });
         });
     },

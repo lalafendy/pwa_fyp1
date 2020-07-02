@@ -1,5 +1,9 @@
 <%- include ('partials/header'); -%>
-
+<% if (success !=''){ %>
+<div style="text-align: center" class="alert alert-danger">
+    <strong><%= success %></strong>
+</div>
+    <% } %>
         <% if (product.length > 0) {%>
             <table>
                     <% product.forEach((prod, index) => { %>

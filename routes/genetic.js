@@ -72,7 +72,7 @@ GeneSmart: (req, res) => {
     var temp1;
     var population=100;
     let chrome=[];
-    var generation=150;
+    var generation=100;
   for (g=0;g< generation;g++){
    if(g==0){
     for(x=0;x<population;x++){
@@ -146,6 +146,7 @@ console.log(gene3);
 var r1=gene3.genotype[0].product_id;
 var r2=gene3.genotype[1].product_id;
 var r3=gene3.genotype[2].product_id;
+
 } 
 
 let query = 'SELECT * FROM `smartphone` where product_id IN ( "' + r1 + '","'+r2 +'","'+ r3+'")';
@@ -156,7 +157,9 @@ let query = 'SELECT * FROM `smartphone` where product_id IN ( "' + r1 + '","'+r2
                 console.log(result);
                 res.render('result.ejs', {
                   title:"Admin Home"
-                  ,product: result
+                  ,product: result,
+                  success: "The results of recommendation has finally come out!",
+                  type :"success"
               });
             });
 });
@@ -222,7 +225,7 @@ Gene.prototype.calcFitness = function() {
             if((demand.product_price - this.genotype[i].product_price)<1000)
               fitness+=10;
                 else
-                  fitness+=5;
+                  fitness+=8;
           }
           else{
             conflict+=1;
@@ -268,7 +271,7 @@ Gene.prototype.calcFitness = function() {
                         conflict+=1;
                         fitness+=3;
                       }
-                        if(this.genotype[i].product_camnum.match(demand.myCamnum))
+                        if(this.genotype[i].product_camnum.match(demand.product_camnum))
                         { //console.log("camnum");
                          fitness+=5;
                         }
@@ -308,7 +311,7 @@ Gene.prototype.calcFitness = function() {
                                   conflict+=1;
                                   fitness+=3;
                                 }
-                                  if(this.genotype[i].product_chipset.match(demand.product_brand))
+                                  if(this.genotype[i].product_chipset.match(demand.product_chipset))
                                   {
                                       fitness+=5;
                                   }
@@ -359,7 +362,7 @@ Gene.prototype.calcFitness = function() {
                                       
                                         this.conflict[i]=conflict;
                                     }  
-                                    this.fitness=fitness_chrome.toFixed(2);
+                                    this.fitness=Math.round(fitness_chrome.toFixed(2));
                                     //return fitness;
                                     
     

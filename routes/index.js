@@ -7,7 +7,7 @@ module.exports = {
                 res.redirect('/');
             }
             res.render('index.ejs', {
-                title: "Welcome to SRcS | View Smartrphone"
+                title: "Welcome to SRcS | View Smartphone"
                 ,product: results,
                 success:''
             });

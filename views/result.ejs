@@ -1,5 +1,11 @@
 <%- include ('partials/header'); -%>
-
+<% if (success) { %>
+    <% if (success !=''){ %>
+        <div style="text-align: center" class="alert alert-<%= type %>">
+            <strong><%= success %></strong>
+        </div>
+            <% } %>
+            <% } %>
         <% if (product.length > 0) {%>
             <table>
                     <% product.forEach((prod, index) => { %>
